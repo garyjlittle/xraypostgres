@@ -100,11 +100,21 @@ results:
   - DB I/O Latency:
       vm_group: pgvms
       result_type: latency
+      aggregate: mean
       result_hint: "Lower latency indicates better performance."
       report_group: performance
       report_metrics:
         - Median
-
+  - DB IOPS:
+      vm_group: pgvms
+      result_type: iops
+      aggregate: sum
+      report_group: performance
+      report_metrics:
+        - Median
+      result_hint: "Higher IOPS indicates better performance."
+      show_statistics: True
+ 
 
 setup:
   - cluster.CleanUp: {}
